@@ -1,0 +1,33 @@
+1. Create Solution class with main method. 
+Read a number (without digits and non negative) using Scanner.
+Program should print largest and smallest digit in that number (print output in separate lines).
+Consider below sample input and output:
+
+Input:
+38729
+
+Output:
+9
+2
+
+import java.util.*;
+public class Solution {
+    public static void main(String args[]) {
+      
+      Scanner sc=new Scanner(System.in);
+      int number=sc.nextInt();
+      int max=Integer.MIN_VALUE;
+      int min=Integer.MAX_VALUE;
+      while(number>0)
+      {
+          int rem=number%10;
+          if(rem>max)
+             max=rem;
+           if(rem<min)
+             min=rem;
+          number=number/10;
+      }
+      System.out.println("MAX : "+max);
+      System.out.println("MIN : "+min);
+    }
+}
