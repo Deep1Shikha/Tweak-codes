@@ -1,0 +1,98 @@
+import java.util.*;
+class Document
+{
+    int id;
+    String name;
+    String fname;
+    int pages;
+    public Document(int id,String name,String fname,int pages)
+    {
+        this.id=id;
+        this.name=name;
+        this.fname=fname;
+        this.pages=pages;
+    }
+  //getter
+  
+  public int getid()
+  {
+      return id;
+  }
+  public String getname()
+  {
+      return name;
+  }
+  public String getfname()
+  {
+      return fname;
+  }
+  public int getpages()
+  {
+      return pages;
+  }
+    
+}
+public class Solution
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int id=0;
+        String name="";
+        String fname="";
+        int pages=0;
+        Document d[]=new Document[4];
+        
+        for(int i=0;i<4;i++)
+        {
+            id=sc.nextInt();
+            sc.nextLine();
+            name=sc.nextLine();
+            fname=sc.nextLine();
+            pages=sc.nextInt();
+            sc.nextLine();
+            d[i]=new Document(id,name,fname,pages);
+         
+        
+        
+        }
+        Document res1[]=combinedocs(d);
+        
+            System.out.println(res1.getid());
+            System.out.println(res1.getname());
+            System.out.println(res1.getfname());
+            System.out.println(res1.getpages());
+        
+    }
+    public static Document[] combinedocs(Document d[])
+    {
+       
+        int max_id=Integer.MIN_VALUE;
+        int idd=0;
+        String name="";
+        String fname="";
+        int pages=0;
+        for(int i=0;i<d.length;i++)
+        {
+            if(max_id<d[i].getid())
+                max_id=d[i].getid();
+            idd=max_id+1;
+            
+            if(i==3)
+            {
+              name=name+d[i].getname();
+              fname=fname+d[i].getfname();
+            }
+            else
+            {
+            fname=fname+d[i].getfname()+"@";
+            name=name+d[i].getname()+"#";
+            }
+            pages=pages+d[i].getpages();
+        }
+        Document res= new Document(idd,name,fname,pages);
+        return res;
+        
+    
+    }
+}
