@@ -1,0 +1,83 @@
+import java.util.*;
+class Document
+{
+    int id;
+    String name;
+    String fname;
+    int pages;
+    
+    public Document(int id,String name,String fname, int pages)
+    {
+        this.id=id;
+        this.name=name;
+        this.fname=fname;
+        this.pages=pages;
+    }
+    public int getid()
+    {
+        return id;
+    }
+    public String getname()
+    {
+        return name;
+    }
+    public String getfname()
+    {
+        return fname;
+    }
+    public int getpages()
+    {
+        return pages;
+    }
+}
+public class Solution
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        Document d[]=new Document[4];
+        int id=0;
+        String name="";
+        String fname="";
+        int pages=0;
+        for(int i=0;i<d.length;i++)
+        {
+            id=sc.nextInt();
+            sc.nextLine();
+            name=sc.nextLine();
+            fname=sc.nextLine();
+            pages=sc.nextInt();
+            sc.nextLine();
+            d[i]= new Document(id,name,fname,pages);
+        }
+        Document res1[]=oddDoc(d);
+        for(int i=0;i<res1.length;i++)
+        {
+            System.out.println(res1[i].getid()+" "+res1[i].getname()+" "+res1[i].getfname()+" "+res1[i].getpages());
+        }
+    }
+    public static Document[] oddDoc(Document d[])
+    {
+       
+        int j=0;
+        for(int i=0;i<d.length;i++)
+        {
+            if((d[i].getpages())%2!=0)
+            {
+              j++;
+            }
+        }
+        Document res[]=new Document[j];
+        j=0;
+        for(int i=0;i<d.length;i++)
+        {
+            if((d[i].getpages())%2!=0)
+            {
+                res[j]=d[i];
+              j++;
+            }
+        }
+        return res;
+    }
+    
+}
