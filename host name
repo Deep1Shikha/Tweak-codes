@@ -1,0 +1,13 @@
+import java.util.*;
+public class MyClass {
+    public static void main(String args[]) {
+      Scanner sc=new Scanner(System.in);
+      String url=sc.nextLine();
+      String now[]=url.split("//");
+      String host[]=now[1].split("/");
+      for(int i=0;i<host.length;i++){
+           System.out.println(host[0]);
+      }
+     
+    }
+}
