@@ -1,0 +1,35 @@
+import java.util.*;
+public class MyClass {
+    public static void main(String args[]) {
+      Scanner sc=new Scanner(System.in);
+      int low=sc.nextInt();
+      int high=sc.nextInt();
+      boolean b[]=new boolean[10];
+      int count=0;
+     for(int i=low;i<=high;i++)
+     {
+         count+=check(i);
+     }
+     System.out.println(count);
+    }
+    public static int check(int input)
+    {
+        boolean b[]=new boolean[10];
+         int flag=1;
+      while(input!=0)
+      {
+        int rem=input%10;
+        if(b[rem]==true)
+        {
+            flag=0;
+            break;
+        }
+          b[rem]=true;
+          input/=10;
+      }
+      if(flag==1)
+       return 1;
+      else
+        return 0;
+    }
+}
