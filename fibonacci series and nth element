@@ -1,0 +1,31 @@
+import java.util.*;
+public class MyClass {
+    public static void main(String args[]) {
+      
+     Scanner sc=new Scanner(System.in);
+     int len=sc.nextInt();
+     int first=0;
+     int second=1;
+     int third=0;
+     len=len-2;
+     System.out.print(" "+first);
+     System.out.print(" "+second);
+     while(len-->0)
+     {
+         third=first+second;
+         System.out.print(" "+third);
+         first=second;
+         second=third;
+     }
+    int index= sc.nextInt();
+    int ans=fib(index);
+    System.out.println("\n index is ="+ans);
+    }
+    public static int fib(int n)
+    {
+        if(n<=1)
+          return n;
+        else
+         return fib(n-1)+fib(n-2);
+    }
+}
